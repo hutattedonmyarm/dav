@@ -33,6 +33,11 @@ class PDO extends AbstractBackend implements SyncSupport, SubscriptionSupport, S
     const MAX_DATE = '2038-01-01';
 
     /**
+     * Fixed prefix for table names.
+     */
+    const TABLE_PREFIX = 'cal_';
+
+    /**
      * pdo.
      *
      * @var \PDO
@@ -44,7 +49,7 @@ class PDO extends AbstractBackend implements SyncSupport, SubscriptionSupport, S
      *
      * @var string
      */
-    public $calendarTableName = 'calendars';
+    public $calendarTableName = self::TABLE_PREFIX.'calendars';
 
     /**
      * The table name that will be used for calendars instances.
@@ -54,35 +59,35 @@ class PDO extends AbstractBackend implements SyncSupport, SubscriptionSupport, S
      *
      * @var string
      */
-    public $calendarInstancesTableName = 'calendarinstances';
+    public $calendarInstancesTableName = self::TABLE_PREFIX.'calendarinstances';
 
     /**
      * The table name that will be used for calendar objects.
      *
      * @var string
      */
-    public $calendarObjectTableName = 'calendarobjects';
+    public $calendarObjectTableName = self::TABLE_PREFIX.'calendarobjects';
 
     /**
      * The table name that will be used for tracking changes in calendars.
      *
      * @var string
      */
-    public $calendarChangesTableName = 'calendarchanges';
+    public $calendarChangesTableName = self::TABLE_PREFIX.'calendarchanges';
 
     /**
      * The table name that will be used inbox items.
      *
      * @var string
      */
-    public $schedulingObjectTableName = 'schedulingobjects';
+    public $schedulingObjectTableName = self::TABLE_PREFIX.'schedulingobjects';
 
     /**
      * The table name that will be used for calendar subscriptions.
      *
      * @var string
      */
-    public $calendarSubscriptionsTableName = 'calendarsubscriptions';
+    public $calendarSubscriptionsTableName = self::TABLE_PREFIX.'calendarsubscriptions';
 
     /**
      * List of CalDAV properties, and how they map to database fieldnames

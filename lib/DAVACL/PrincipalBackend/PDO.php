@@ -22,18 +22,23 @@ use Sabre\Uri;
 class PDO extends AbstractBackend implements CreatePrincipalSupport
 {
     /**
+     * Fixed prefix for table names.
+     */
+    const TABLE_PREFIX = 'cal_';
+    
+    /**
      * PDO table name for 'principals'.
      *
      * @var string
      */
-    public $tableName = 'principals';
+    public $tableName = self::TABLE_PREFIX.'principals';
 
     /**
      * PDO table name for 'group members'.
      *
      * @var string
      */
-    public $groupMembersTableName = 'groupmembers';
+    public $groupMembersTableName = self::TABLE_PREFIX.'groupmembers';
 
     /**
      * pdo.

@@ -23,6 +23,11 @@ use Sabre\DAV\Xml\Property\Complex;
 class PDO implements BackendInterface
 {
     /**
+     * Fixed prefix for table names.
+     */
+    const TABLE_PREFIX = 'cal_';
+    
+    /**
      * Value is stored as string.
      */
     const VT_STRING = 1;
@@ -49,7 +54,7 @@ class PDO implements BackendInterface
      *
      * @var string
      */
-    public $tableName = 'propertystorage';
+    public $tableName = self::TABLE_PREFIX.'propertystorage';
 
     /**
      * Creates the PDO property storage engine.

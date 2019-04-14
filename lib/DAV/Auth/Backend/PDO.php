@@ -14,6 +14,11 @@ namespace Sabre\DAV\Auth\Backend;
 class PDO extends AbstractDigest
 {
     /**
+     * Fixed prefix for table names.
+     */
+    const TABLE_PREFIX = 'cal_';
+    
+    /**
      * Reference to PDO connection.
      *
      * @var PDO
@@ -25,7 +30,7 @@ class PDO extends AbstractDigest
      *
      * @var string
      */
-    public $tableName = 'users';
+    public $tableName = self::TABLE_PREFIX.'users';
 
     /**
      * Creates the backend object.

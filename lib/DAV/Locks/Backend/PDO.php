@@ -19,11 +19,16 @@ use Sabre\DAV\Locks\LockInfo;
 class PDO extends AbstractBackend
 {
     /**
+     * Fixed prefix for table names.
+     */
+    const TABLE_PREFIX = 'cal_';
+
+    /**
      * The PDO tablename this backend uses.
      *
      * @var string
      */
-    public $tableName = 'locks';
+    public $tableName = self::TABLE_PREFIX.'locks';
 
     /**
      * The PDO connection object.

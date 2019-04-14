@@ -19,6 +19,11 @@ use Sabre\DAV;
 class PDO extends AbstractBackend implements SyncSupport
 {
     /**
+     * Fixed prefix for table names.
+     */
+    const TABLE_PREFIX = 'cal_';
+
+    /**
      * PDO connection.
      *
      * @var PDO
@@ -28,19 +33,19 @@ class PDO extends AbstractBackend implements SyncSupport
     /**
      * The PDO table name used to store addressbooks.
      */
-    public $addressBooksTableName = 'addressbooks';
+    public $addressBooksTableName = self::TABLE_PREFIX.'addressbooks';
 
     /**
      * The PDO table name used to store cards.
      */
-    public $cardsTableName = 'cards';
+    public $cardsTableName = self::TABLE_PREFIX.'cards';
 
     /**
      * The table name that will be used for tracking changes in address books.
      *
      * @var string
      */
-    public $addressBookChangesTableName = 'addressbookchanges';
+    public $addressBookChangesTableName = self::TABLE_PREFIX.'addressbookchanges';
 
     /**
      * Sets up the object.
